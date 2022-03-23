@@ -2,10 +2,16 @@ import React from 'react';
 import { useEffect } from 'react';
 import ComputerSquare from './ComputerSquare';
 
-const ComputerGrid = ({ computerGameGrid, setComputerGameGrid, computerShipYard, setComputerShipYard, computerShotGenerator, playerPlacedShipsNumber, winnerInfo, setWinnerInfo }) => {
-  
-  //const [shipDirection, setShipDirection] = useState(['horizontal']);
-
+const ComputerGrid = ({ 
+  computerGameGrid, 
+  setComputerGameGrid, 
+  computerShipYard, 
+  setComputerShipYard, 
+  computerShotGenerator, 
+  playerPlacedShipsNumber, 
+  winnerInfo, 
+  setWinnerInfo 
+}) => {  
   const squareShotHandler = (rowIndex, columnIndex) => {
     const computerGameGridCopy = [...computerGameGrid];
     computerGameGridCopy[rowIndex] = [...computerGameGridCopy[rowIndex]];
@@ -39,7 +45,6 @@ const ComputerGrid = ({ computerGameGrid, setComputerGameGrid, computerShipYard,
     if (availableShips.length === 0) {
       setWinnerInfo('You are a winner! Congratulations!🎉');
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [computerShipYard]);
 
   return (
@@ -51,7 +56,6 @@ const ComputerGrid = ({ computerGameGrid, setComputerGameGrid, computerShipYard,
               return (
                 <ComputerSquare 
                   key={`${arrayNumber}${squareNumber}`}
-                  insideText={square}
                   rowIndex={arrayNumber}
                   columnIndex={squareNumber}
                   computerGameGrid={computerGameGrid}

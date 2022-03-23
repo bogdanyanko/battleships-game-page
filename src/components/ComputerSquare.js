@@ -1,7 +1,6 @@
 import React from 'react';
 
-const ComputerSquare = ({ 
-  insideText, 
+const ComputerSquare = ({  
   rowIndex, 
   columnIndex,
   computerGameGrid,

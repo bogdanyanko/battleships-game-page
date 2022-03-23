@@ -2,7 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import PlayerSquare from './PlayerSquare';
 
-const PlayerGrid = ({ playerGameGrid, setPlayerGameGrid, playerShipYard, playerPlacedShipsNumber, setPlayerPlacedShipsNumber, setWinnerInfo }) => {
+const PlayerGrid = ({ 
+  playerGameGrid, 
+  setPlayerGameGrid, 
+  playerShipYard, 
+  playerPlacedShipsNumber, 
+  setPlayerPlacedShipsNumber, 
+  setWinnerInfo 
+}) => {
   const [shipDirection, setShipDirection] = useState('horizontal');
 
   const shipDirectionHandler = (event) => {
@@ -12,10 +19,6 @@ const PlayerGrid = ({ playerGameGrid, setPlayerGameGrid, playerShipYard, playerP
     } else {
       setShipDirection('horizontal');
     }
-  }
-
-  const shipProjectionHandler = (rowIndex, columnIndex) => {
-    console.log(rowIndex, columnIndex);
   }
 
   const shipPlacementHandler = (rowIndex, columnIndex) => {
@@ -97,7 +100,6 @@ const PlayerGrid = ({ playerGameGrid, setPlayerGameGrid, playerShipYard, playerP
     if (availableShips.length === 0) {
       setWinnerInfo('You lost this one😥 Better luck next time!');
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playerShipYard]);
 
   return (
@@ -109,14 +111,12 @@ const PlayerGrid = ({ playerGameGrid, setPlayerGameGrid, playerShipYard, playerP
               return (
                 <PlayerSquare 
                   key={`${arrayNumber}${squareNumber}`}
-                  insideText={square}
                   rowIndex={arrayNumber}
                   columnIndex={squareNumber}
                   playerGameGrid={playerGameGrid}
                   shipPlacementHandler={shipPlacementHandler}
                   playerPlacedShipsNumber={playerPlacedShipsNumber}
                   shipDirectionHandler={shipDirectionHandler}
-                  shipProjectionHandler={shipProjectionHandler}
                 >
                 </PlayerSquare>
               )
