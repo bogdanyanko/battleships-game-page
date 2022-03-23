@@ -1,6 +1,13 @@
 import React from 'react';
 
-const PlayerSquare = ({ insideText, rowIndex, columnIndex, playerGameGrid, shipPlacementHandler, playerPlacedShipsNumber, shipDirectionHandler, shipProjectionHandler }) => {
+const PlayerSquare = ({ 
+  rowIndex, 
+  columnIndex, 
+  playerGameGrid, 
+  shipPlacementHandler, 
+  playerPlacedShipsNumber, 
+  shipDirectionHandler 
+}) => {
   const classNameHandler = () => {
     if (playerGameGrid[rowIndex][columnIndex] === '.') {
       return 'playerSquare'
@@ -17,7 +24,7 @@ const PlayerSquare = ({ insideText, rowIndex, columnIndex, playerGameGrid, shipP
   }
   
   return (
-    <div className={classNameHandler()} onClick={(playerPlacedShipsNumber === 5)? () => {} : () => shipPlacementHandler(rowIndex, columnIndex)} onContextMenu={shipDirectionHandler} onMouseOver={() => shipProjectionHandler(rowIndex, columnIndex)}></div>
+    <div className={classNameHandler()} onClick={(playerPlacedShipsNumber === 5)? () => {} : () => shipPlacementHandler(rowIndex, columnIndex)} onContextMenu={shipDirectionHandler}></div>
   );
 };
 
